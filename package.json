@@ -10,9 +10,16 @@
   },
   "dependencies": {
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "vue-material": "^1.0.0-beta-15"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3"
+  },
+  "config": {
+    "nuxt": {
+      "host": "192.168.33.10",
+      "port": "8000"
+    }
   }
 }
