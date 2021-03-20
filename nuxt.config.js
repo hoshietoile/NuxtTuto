@@ -27,6 +27,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/vue-material',
+    '~/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,13 +42,30 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    "@nuxtjs/axios"
+  ],
+  axios: {
+    baseURL: 'http://192.168.33.10:8000', // TODO: Node.envを見て切り替えるなど
+  },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
+  serverMiddleware: [
+    { path: '/api', handler: '~/server/index.js' }
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

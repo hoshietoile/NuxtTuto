@@ -1,89 +1,69 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+    <md-steppers class="stepper__wrapper">
+      <md-step id="first" md-label="First Step">
+        <md-field>
+          <label for="movie">Movie</label>
+          <md-select v-model="selected" name="movie" id="movie">
+            <md-option
+              v-for="item in options"
+              :key="item.id"
+              :value="item.value"
             >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
+              {{ item.text }}
+            </md-option>
+          </md-select>
+        </md-field>
+        <md-field>
+          <label>Initial Value</label>
+          <md-input v-model="initial"></md-input>
+        </md-field>
+        <v-row>
+          <v-col cols="6" />
+          <v-col cols="2">
+            <md-button>Default</md-button>
+          </v-col>
+          <v-col cols="2">
+            <md-button class="md-raised md-accent">Accent</md-button>
+          </v-col>
+          <v-col cols="2">
+            <md-button class="md-raised md-primary">Primary</md-button>
+          </v-col>
+        </v-row>
+      </md-step>
+
+      <md-step id="second" md-label="Second Step">
+        
+      </md-step>
+
+      <md-step id="third" md-label="Third Step">
+        
+      </md-step>
+    </md-steppers>
   </v-row>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+  name: 'Index',
+  components: {},
+  data () {
+    return {
+      selected: 1,
+      options: [
+        { id: 1, value: 1, text: 'test01' },
+        { id: 2, value: 2, text: 'test02' },
+        { id: 3, value: 3, text: 'test03' },
+      ]
+    }
+  },
+  methods: {}
 }
 </script>
+
+<style lang="scss">
+.stepper__wrapper {
+  width: 100%;
+}
+</style>
