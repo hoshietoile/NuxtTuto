@@ -1,15 +1,14 @@
-const db = require('./../db')
 const handleAsync = require('./../modules/handleAsync')
-const UserRepository = require('./../repositories/userRepository')
+const SeederRepository = require('./../repositories/seederRepository')
 
-class UserController {
+class SeederController {
   constructor () {
-    this.repository = new UserRepository()
+    this.repository = new SeederRepository()
   }
 
   index = handleAsync(async (req, res, next) => {
-    const users = await this.repository.index()
-    res.status(200).json({ message: users })
+    const seeders = await this.repository.index()
+    res.status(200).json({ message: seeders })
   })
 
   edit = handleAsync(async (req, res, next) => {
@@ -29,4 +28,4 @@ class UserController {
   })
 }
 
-module.exports = UserController
+module.exports = SeederController

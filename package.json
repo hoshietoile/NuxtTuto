@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "debug": "ndb ./server/debug.js "
+    "debug": "node ./server/debug.js "
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
@@ -16,11 +16,14 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "faker": "^5.4.0",
+    "mysql-query-validator": "^0.0.4",
     "mysql2": "^2.2.5",
     "ndb": "^1.1.5",
     "node-sass": "^5.0.0",
     "nuxt": "^2.15.3",
     "sass-loader": "10.1.1",
+    "sql-formatter": "^4.0.2",
     "vue-material": "^1.0.0-beta-15"
   },
   "devDependencies": {
